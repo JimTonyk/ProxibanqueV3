@@ -1,7 +1,19 @@
 package fr.proxibanque.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
 
 /**
  * Création d'un objet Client pour lui associer dans la suite comptes et cartes
@@ -9,11 +21,16 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author Jean-Michel Hiltbrunner et Ozlem Avci
  *
  */
+
+@Entity
 @XmlRootElement(name="Client")
 public class Client {
 
 	// *** ATTRIBUTS ***
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "client_idClient")
 	private int idClient;
 	private String nom;
 	private String prenom;
@@ -22,6 +39,14 @@ public class Client {
 	private String ville;
 	private String telephone;
 
+	@OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	private Set<Compte> comptes = new HashSet<>();
+
+	public void addCompte(Compte compte) {
+		comptes.add(compte);
+		compte.setClient(this);
+	}
+
 	// *** CONSTRUCTEURS ***
 
 	public Client() {
@@ -29,7 +54,7 @@ public class Client {
 	}
 
 	public Client(int idClient, String nom, String prenom, String adresse, String codePostal, String ville,
-			String telephone) {
+			String telephone, Set<Compte> comptes) {
 		super();
 		this.idClient = idClient;
 		this.nom = nom;
@@ -38,6 +63,7 @@ public class Client {
 		this.codePostal = codePostal;
 		this.ville = ville;
 		this.telephone = telephone;
+		this.comptes = comptes;
 	}
 
 	// *** GETTERS and SETTERS ***
@@ -105,12 +131,21 @@ public class Client {
 		this.telephone = telephone;
 	}
 
+	public Set<Compte> getComptes() {
+		return comptes;
+	}
+
+	public void setComptes(Set<Compte> comptes) {
+		this.comptes = comptes;
+	}
+
 	// *** AUTRES METHODES ***
 
 	@Override
 	public String toString() {
 		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse
-				+ ", codePostal=" + codePostal + ", ville=" + ville + ", telephone=" + telephone + "]";
+				+ ", codePostal=" + codePostal + ", ville=" + ville + ", telephone=" + telephone + ", comptes="
+				+ comptes + "]";
 	}
 
 }

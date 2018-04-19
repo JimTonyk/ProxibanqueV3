@@ -1,5 +1,7 @@
 package fr.proxibanque.model;
 
+import javax.persistence.Entity;
+
 /**
  * Cette classe décrit les caractéristiques d'un compte épargne ProxiBanque.
  * Chaque client peut disposer d'un compte épargne après ajout explicite par un
@@ -9,6 +11,7 @@ package fr.proxibanque.model;
  *
  */
 
+@Entity
 public class CompteEpargne extends Compte {
 
 	// *** ATTRIBUTES ***

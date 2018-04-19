@@ -1,5 +1,14 @@
 package fr.proxibanque.model;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 /**
  * Cette classe abstraite factorise les caractéristiques d'un compte bancaire
  * Proxibanque (courant ou épargne).
@@ -8,14 +17,20 @@ package fr.proxibanque.model;
  *
  */
 
+@Entity
 public abstract class Compte {
 
 	// *** ATTRIBUTES ***
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int numeroCompte;
 	private double solde;
 	private String dateOuverture;
-	private int idClient;
+
+	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@JoinColumn(name = "client_idClient")
+	private Client client;
 
 	// *** CONSTRUCTORS ***
 
@@ -23,12 +38,13 @@ public abstract class Compte {
 		super();
 	}
 
-	public Compte(int numeroCompte, double solde, String dateOuverture, int idClient) {
+	public Compte(int numeroCompte, double solde, String dateOuverture, Client client) {
 		super();
+
 		this.numeroCompte = numeroCompte;
 		this.solde = solde;
 		this.dateOuverture = dateOuverture;
-		this.idClient = idClient;
+		this.client = client;
 	}
 
 	// *** GETTERS and SETTERS ***
@@ -57,12 +73,12 @@ public abstract class Compte {
 		this.dateOuverture = dateOuverture;
 	}
 
-	public int getIdClient() {
-		return idClient;
+	public Client getClient() {
+		return client;
 	}
 
-	public void setIdClient(int idClient) {
-		this.idClient = idClient;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
 	// *** OTHER METHODS ***
@@ -70,7 +86,7 @@ public abstract class Compte {
 	@Override
 	public String toString() {
 		return "Compte [numeroCompte=" + numeroCompte + ", solde=" + solde + ", dateOuverture=" + dateOuverture
-				+ ", idClient=" + idClient + "]";
+				+ ", client=" + client + "]";
 	}
 
 }
