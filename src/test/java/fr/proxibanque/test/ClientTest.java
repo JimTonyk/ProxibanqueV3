@@ -10,8 +10,6 @@ import fr.proxibanque.persistence.ClientDaoImpl;
 
 
 
-
-
 public class ClientTest {
 
 	public static void main(String[] args) {
@@ -26,6 +24,9 @@ public class ClientTest {
 		
 		clientDao.creerClient(client1);
 		clientDao.obtenirClient(1);
+		clientDao.obtenirTousClients();
+		clientDao.modifierClient(1, client1);
+		clientDao.supprimerClient(1);
 		
 	}
 
