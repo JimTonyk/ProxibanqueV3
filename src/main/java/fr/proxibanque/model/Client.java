@@ -1,11 +1,15 @@
 package fr.proxibanque.model;
 
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Création d'un objet Client pour lui associer dans la suite comptes et cartes
  * 
  * @author Jean-Michel Hiltbrunner et Ozlem Avci
  *
  */
+@XmlRootElement(name="Client")
 public class Client {
 
 	// *** ATTRIBUTS ***
@@ -42,6 +46,7 @@ public class Client {
 		return idClient;
 	}
 
+	@XmlElement(name="id")
 	public void setIdClient(int idClient) {
 		this.idClient = idClient;
 	}
@@ -50,6 +55,7 @@ public class Client {
 		return nom;
 	}
 
+	@XmlElement(name="nom")
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
@@ -58,6 +64,7 @@ public class Client {
 		return prenom;
 	}
 
+	@XmlElement(name="prenom")
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
@@ -66,6 +73,7 @@ public class Client {
 		return adresse;
 	}
 
+	@XmlElement(name="adresse")
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
@@ -74,6 +82,7 @@ public class Client {
 		return codePostal;
 	}
 
+	@XmlElement(name="codePostal")
 	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
@@ -82,6 +91,7 @@ public class Client {
 		return ville;
 	}
 
+	@XmlElement(name="ville")
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
@@ -90,6 +100,7 @@ public class Client {
 		return telephone;
 	}
 
+	@XmlElement(name="telephone")
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}

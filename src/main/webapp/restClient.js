@@ -3,15 +3,15 @@ function doGet(){
     	type: "GET",
     	 contentType: "application/json; charset=utf-8",
          dataType: "json",
-        url: "http://localhost:8080/proxibanque/services/clientservice/clients/"+$('#clientID').val()
+        url: "http://localhost:8080/proxibanque/services/clientservice/Clients/"+$('#ClientID').val()
     }).then(function(data) {
-       $('#clientID').val(data.id);
-       $('#clientNom').val(data.nom);
-       $('#clientPrenom').val(data.prenom)
-       $('#clientAdresse').val(data.adresse);
-       $('#clientCodePostal').val(data.codepostal);
-       $('#clientVille').val(data.ville);
-       $('#clientTelephone').val(data.telephone);
+       $('#ClientID').val(data.id);
+       $('#ClientNom').val(data.nom);
+       $('#ClientPrenom').val(data.prenom)
+       $('#ClientAdresse').val(data.adresse);
+       $('#ClientCodePostal').val(data.codepostal);
+       $('#ClientVille').val(data.ville);
+       $('#ClientTelephone').val(data.telephone);
     });
 }
 	
@@ -20,17 +20,17 @@ $.ajax({
 	type: "POST",
 	 contentType: "application/json; charset=utf-8",
      dataType: "json",
-     data: JSON.stringify({name:$('#clientName').val()}),
-    url: "http://localhost:8080/proxibanque/services/clientservice/clients"
+     data: JSON.stringify({name:$('#ClientName').val()}),
+    url: "http://localhost:8080/proxibanque/services/clientservice/Clients"
     	
 	}).then(function(data) {
-		$('#clientID').val(data.id);
-		$('#clientName').val(data.nom);
-		$('#clientPrenom').val(data.prenom)
-	    $('#clientAdresse').val(data.adresse);
-	    $('#clientCodePostal').val(data.codepostal);
-	    $('#clientVille').val(data.ville);
-	    $('#clientTelephone').val(data.telephone);
+		 $('#ClientID').val(data.id);
+	       $('#ClientNom').val(data.nom);
+	       $('#ClientPrenom').val(data.prenom)
+	       $('#ClientAdresse').val(data.adresse);
+	       $('#ClientCodePostal').val(data.codepostal);
+	       $('#ClientVille').val(data.ville);
+	       $('#ClientTelephone').val(data.telephone);
 	});
     
 }
@@ -40,15 +40,15 @@ function doPut(){
     	type: "PUT",
     	 contentType: "application/json; charset=utf-8",
          dataType: "json",
-        url: "http://localhost:8080/proxibanque/services/clientservice/clients/"
+        url: "http://localhost:8080/proxibanque/services/clientservice/Clients/"
     }).then(function(data) {
-    	$('#clientID').val(data.id);
-        $('#clientNom').val(data.nom);
-        $('#clientPrenom').val(data.prenom)
-        $('#clientAdresse').val(data.adresse);
-        $('#clientCodePostal').val(data.codepostal);
-        $('#clientVille').val(data.ville);
-        $('#clientTelephone').val(data.telephone);
+    	 $('#ClientID').val(data.id);
+         $('#ClientNom').val(data.nom);
+         $('#ClientPrenom').val(data.prenom)
+         $('#ClientAdresse').val(data.adresse);
+         $('#ClientCodePostal').val(data.codepostal);
+         $('#ClientVille').val(data.ville);
+         $('#ClientTelephone').val(data.telephone);
     });
 }
 	
@@ -57,7 +57,7 @@ function doDelete(){
     	type: "DELETE",
     	 contentType: "application/json; charset=utf-8",
          dataType: "json",
-        url: "http://localhost:8080/proxibanque/services/clientservice/clients/"+$('#clienttID').val()
+        url: "http://localhost:8080/proxibanque/services/clientservice/Clients/"+$('#ClienttID').val()
     }).then(function(data) {
        alert('Client supprimé de Proxibanque');
     });
