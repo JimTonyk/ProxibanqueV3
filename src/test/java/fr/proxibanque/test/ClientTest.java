@@ -18,13 +18,14 @@ public class ClientTest {
 		
 		ClientDao clientDao = new ClientDaoImpl();
 
-		Client client1 = new Client(1, "Dupont", "Marc", "5 rue four", "75001", "Paris", "0000000000");
+		Client client1 = new Client(1, "Dupont", "Marc", "5 rue four", "75001", "Paris", "0000000000", null);
 		
 		CompteCourant compteCourant1 = new CompteCourant();
 		CompteEpargne compteEpargne1 = new CompteEpargne();
 //		Conseiller conseiller1 = new Conseiller();
 		
 		clientDao.creerClient(client1);
+		clientDao.obtenirClient(1);
 		
 	}
 

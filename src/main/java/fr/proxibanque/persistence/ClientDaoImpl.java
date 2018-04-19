@@ -11,7 +11,6 @@ import fr.proxibanque.model.Client;
 import fr.proxibanque.model.CompteCourant;
 import fr.proxibanque.model.CompteEpargne;
 
-
 public class ClientDaoImpl implements ClientDao {
 
 	@Override
@@ -46,15 +45,47 @@ public class ClientDaoImpl implements ClientDao {
 				em.close();
 			}
 		}
-		emf.close();
-	}
 
-	
+	}
 
 	@Override
 	public Client obtenirClient(int idClient) {
-		// TODO Auto-generated method stub
-		return null;
+		//
+		Client client1 = new Client();
+
+		CompteCourant compteCourant1 = new CompteCourant();
+		CompteEpargne compteEpargne1 = new CompteEpargne();
+
+		// // ajout des comptes au client1
+		client1.getComptes().add(compteCourant1);
+		client1.getComptes().add(compteCourant1);
+
+		// // ajout du client1 aux comptes=FK
+		compteCourant1.setClient(client1);
+		compteEpargne1.setClient(client1);
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction txn = em.getTransaction();
+
+		try {
+			txn.begin();
+			em.persist(client1);
+			txn.commit();
+
+		} catch (Exception e) {
+			if (txn != null) {
+				txn.rollback();
+			}
+			e.printStackTrace();
+
+		} finally {
+			if (em != null) {
+				em.close();
+				emf.close();
+			}
+		}
+		return client1;
 	}
 
 	@Override
