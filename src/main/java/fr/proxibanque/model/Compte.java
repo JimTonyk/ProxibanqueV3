@@ -1,5 +1,11 @@
 package fr.proxibanque.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Cette classe abstraite factorise les caractéristiques d'un compte bancaire
  * Proxibanque (courant ou épargne).
@@ -8,14 +14,17 @@ package fr.proxibanque.model;
  *
  */
 
+@Entity
 public abstract class Compte {
 
 	// *** ATTRIBUTES ***
-
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "groupe_idClient")
+	private int idClient;
 	private int numeroCompte;
 	private double solde;
 	private String dateOuverture;
-	private int idClient;
 
 	// *** CONSTRUCTORS ***
 

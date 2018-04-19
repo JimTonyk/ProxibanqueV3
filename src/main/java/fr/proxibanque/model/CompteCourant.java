@@ -1,5 +1,7 @@
 package fr.proxibanque.model;
 
+import javax.persistence.Entity;
+
 /**
  * Cette classe décrit les caractéristiques d'un compte courant ProxiBanque.
  * Chaque client dispose d'un compte courant généré automatiquement à la
@@ -10,6 +12,7 @@ package fr.proxibanque.model;
  *
  */
 
+@Entity
 public class CompteCourant extends Compte {
 
 	// *** ATTRIBUTES ***
