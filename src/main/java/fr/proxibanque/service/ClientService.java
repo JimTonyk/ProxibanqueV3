@@ -5,6 +5,7 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
@@ -19,7 +20,7 @@ public interface ClientService {
 	
 	@GET
 	@Path("/Clients/{id}")
-	Client obtenirClient(String id);
+	Client obtenirClient(@PathParam("id") String id);
 	
 	@PUT
 	@Path("/Clients/")
@@ -27,6 +28,6 @@ public interface ClientService {
 	
 	@DELETE
 	@Path("/Clients/{id}")
-	Response supprimerClient(String id);
+	Response supprimerClient(@PathParam("id") String id);
 
 }

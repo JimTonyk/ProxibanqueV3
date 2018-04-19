@@ -20,12 +20,17 @@ $.ajax({
 	type: "POST",
 	 contentType: "application/json; charset=utf-8",
      dataType: "json",
-     data: JSON.stringify({name:$('#clientName').val()}),
+     data: JSON.stringify({nom:$('#clientNom').val(),
+     prenom:$('#clientPrenom').val(),
+     adresse:$('#clientAdresse').val(),
+     codepostal:$('#clientCodePostal').val(),
+     ville:$('#clientVille').val(),
+     telephone:$('#clientTelephone').val()}),
     url: "http://localhost:8080/proxibanque/services/clientservice/Clients"
     	
 	}).then(function(data) {
 		 $('#clientID').val(data.id);
-	       $('#clientNom').val(data.nom);
+	      $('#clientNom').val(data.nom);
 	       $('#clientPrenom').val(data.prenom)
 	       $('#clientAdresse').val(data.adresse);
 	       $('#clientCodePostal').val(data.codepostal);

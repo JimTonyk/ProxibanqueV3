@@ -1,0 +1,103 @@
+package services;
+
+
+
+import javax.print.attribute.standard.Media;
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import model.Conseiller;
+import model.Customer;
+public class SimpleRestClientEx {
+	private static final String ID = "newIdClient";
+	private static final String ID_PLACEHOLDER = "/{newIdClient}";
+	private static final String CUSTOMERS = "/Customer";
+	private static final String SERVICE_CUSTOMERS = "http://localhost:8080/EtienneArnaudProxybanqueV3_1/services/customerService";
+	
+	
+	public static void main(String[] args) {
+		
+	Client client = ClientBuilder.newClient();
+	WebTarget webTarget = client.target(SERVICE_CUSTOMERS).path(CUSTOMERS).path(ID_PLACEHOLDER).resolveTemplate(ID, "123");
+	Response response = webTarget.request().get();
+	Customer c = response.readEntity(Customer.class);
+	System.out.println(c.getNom() + " status " + response.getStatus());
+
+	Customer customer2 = new Customer();
+	customer2.setIdClient(123);
+	customer2.setNom("RenardeauBest");
+	WebTarget webTarget2 = client.target(SERVICE_CUSTOMERS).path(CUSTOMERS);
+	Response response2 = webTarget2.request().put(Entity.entity(customer2, MediaType.APPLICATION_XML));
+	System.out.println(response2.getStatus());
+	}
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+function doGet() {
+	$
+			.ajax(
+					{
+						type : "GET",
+						contentType : "application/json; charset=utf-8",
+						dataType : "json",
+						url : "http://localhost:8080/EtienneArnaudProxybanqueV3_1/services/customerService/Customer/"
+								+ $('#newIdClient').val()
+					}).then(function(data) {
+				$('#newIdClient').val(data.idClient);
+				$('#newNom').val(data.nom);
+			});
+}
+
+function doPost() {
+	$.ajax({
+		type : "POST",
+		contentType : "application/json; charset=utf-8",
+		dataType : "json",
+		data : JSON.stringify({
+			name : $('#newNom').val()
+		}),
+		url : "http://localhost:8080/EtienneArnaudProxybanqueV3_1/services/customerService/Customer/"
+
+	}).then(function(data) {
+		$('#newIdClient').val(data.idClient);
+		$('#newNom').val(data.nom);
+	});
+
+}
+
+function doDelete() {
+	$.ajax({
+		type : "DELETE",
+		contentType : "application/json; charset=utf-8",
+		dataType : "json",
+		url : "http://localhost:8080/EtienneArnaudProxybanqueV3_1/services/customerService/Customer/"
+				+ $('#newIdClient').val(),
+		success : function(result) {
+			if (result)
+				alert('Votre client a été supprimé');
+		}
+	});
+}
+
+function doPut() {
+	$.ajax({
+		type : "PUT",
+		contentType : "application/json; charset=utf-8",
+		dataType : "json",
+		data : JSON.stringify({
+			id : $('#newIdClient').val(),
+			name : $('#newNom').val()
+		}),
+		url : "http://localhost:8080/EtienneArnaudProxybanqueV3_1/services/customerService/Customer/"
+	}).then(function(data) {
+		$('#newIdClient').val(data.idClient);
+		$('#newNom').val(data.nom);
+	});
+}
