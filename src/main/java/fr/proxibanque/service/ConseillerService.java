@@ -1,4 +1,4 @@
-package fr.proxibanque.presentation;
+package fr.proxibanque.service;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;

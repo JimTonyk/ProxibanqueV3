@@ -1,4 +1,4 @@
-package fr.proxibanque.presentation;
+package fr.proxibanque.service;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -21,7 +21,7 @@ public interface ClientService {
 	
 	@PUT
 	@Path("/Clients/")
-	Response modifierClient (Client client);
+	Response modifierClient (int idClient, Client client);
 	
 	@DELETE
 	@Path("/Clients/{id}")

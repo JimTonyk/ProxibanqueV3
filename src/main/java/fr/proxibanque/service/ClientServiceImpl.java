@@ -1,4 +1,4 @@
-package fr.proxibanque.presentation;
+package fr.proxibanque.service;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,12 +9,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.proxibanque.model.Client;
+import fr.proxibanque.persistence.ClientDao;
+import fr.proxibanque.persistence.ClientDaoImpl;
 
 public class ClientServiceImpl implements ClientService {
 
 	private int initialId = 1000;
 	Map<Integer, Client> clients = new HashMap<Integer, Client>();
 	private static Logger LOGGER = LoggerFactory.getLogger(ClientServiceImpl.class);
+	ClientDao dao = new ClientDaoImpl();
 
 	public ClientServiceImpl() {
 		initialisation();
@@ -36,8 +39,7 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public Response ajouterClient(Client client) {
 		Response response = null;
-		client.setIdClient(initialId);
-		clients.put(client.getIdClient(), client);
+		dao.creerClient(client);
 		response = Response.ok().build();
 		initialId++;
 		LOGGER.info("Le client " + client.getPrenom() + " " + client.getNom() + " a été ajouté à la liste");
@@ -47,18 +49,18 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public Client obtenirClient(String id) {
 		int requete = Integer.parseInt(id);
-		Client choix = clients.get(requete);
+		Client choix = dao.obtenirClient(requete);
 		LOGGER.info(
 				"Des informations sur le client " + choix.getPrenom() + " " + choix.getNom() + " ont été demandées.");
 		return choix;
 	}
 
 	@Override
-	public Response modifierClient(Client client) {
+	public Response modifierClient(int idClient, Client client) {
 		Response response = null;
-		Client modif = clients.get(client.getIdClient());
+		Client modif = dao.obtenirClient(idClient);
 		if (modif != null) {
-			clients.put(client.getIdClient(), client);
+			dao.modifierClient(idClient, client);
 			response = Response.ok().build();
 			LOGGER.info("Des informations sur le client " + client.getPrenom() + " " + client.getNom()
 					+ " ont été modifiées.");
@@ -74,11 +76,11 @@ public class ClientServiceImpl implements ClientService {
 	public Response supprimerClient(String id) {
 		Response response = null;
 		int requete = Integer.parseInt(id);
-		Client client = clients.get(requete);
+		Client client = dao.obtenirClient(requete);
 		if (client != null) {
 			LOGGER.info(
 					"Le client " + client.getPrenom() + " " + client.getNom() + " a été supprimé de la base clients");
-			clients.remove(requete);
+			dao.supprimerClient(requete);
 			response = Response.ok().build();
 		} else
 			response = Response.notModified().build();
