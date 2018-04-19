@@ -7,8 +7,7 @@ package fr.proxibanque.model;
  *
  */
 
-public class Conseiller {
-
+public class Gerant {
 	// *** ATTRIBUTES ***
 
 	private int id;
@@ -19,11 +18,12 @@ public class Conseiller {
 
 	// *** CONSTRUCTORS ***
 
-	public Conseiller() {
+	public Gerant() {
 		super();
 	}
 
-	public Conseiller(String prenom, String nom, String login, String password, int id) {
+	public Gerant(int id, String prenom, String nom, String login, String password) {
+		super();
 		this.id = id;
 		this.prenom = prenom;
 		this.nom = nom;
@@ -77,7 +77,7 @@ public class Conseiller {
 
 	@Override
 	public String toString() {
-		return "Conseiller [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", login=" + login + ", password="
+		return "Gerant [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", login=" + login + ", password="
 				+ password + "]";
 	}
 
