@@ -19,8 +19,8 @@ public interface ClientService {
 	Response ajouterClient(Client client);
 	
 	@GET
-	@Path("/Clients/{id}")
-	Client obtenirClient(@PathParam("id") String id);
+	@Path("/Clients/{idClient}")
+	Client obtenirClient(@PathParam("idClient") String id);
 	
 	@PUT
 	@Path("/Clients/")
@@ -28,6 +28,6 @@ public interface ClientService {
 	
 	@DELETE
 	@Path("/Clients/{id}")
-	Response supprimerClient(@PathParam("id") String id);
+	Response supprimerClient(@PathParam("idClient") String id);
 
 }

@@ -72,7 +72,7 @@ public class Client {
 		return idClient;
 	}
 
-	@XmlElement(name="id")
+	@XmlElement(name="idClient")
 	public void setIdClient(int idClient) {
 		this.idClient = idClient;
 	}
@@ -135,7 +135,7 @@ public class Client {
 		return comptes;
 	}
 
-	@XmlElement(name="compte")
+	@XmlElement(name="comptes")
 	public void setComptes(Set<Compte> comptes) {
 		this.comptes = comptes;
 	}
