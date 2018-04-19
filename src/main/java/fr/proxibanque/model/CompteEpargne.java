@@ -25,8 +25,8 @@ public class CompteEpargne extends Compte {
 		super();
 	}
 
-	public CompteEpargne(int numeroCompte, double solde, String dateOuverture, int idClient) {
-		super(numeroCompte, solde, dateOuverture, idClient);
+	public CompteEpargne(int numeroCompte, double solde, String dateOuverture, Client client) {
+		super(numeroCompte, solde, dateOuverture, client);
 	}
 
 	// *** GETTERS and SETTERS ***

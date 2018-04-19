@@ -26,9 +26,9 @@ public class CompteCourant extends Compte {
 	}
 
 	// TODO L'idClient est-il nécessaire ? À refactoriser
-	public CompteCourant(int numeroCompte, double solde, String dateOuverture, int idClient) {
+	public CompteCourant(int numeroCompte, double solde, String dateOuverture, Client client) {
 		// Le compte courant est créé sans carte bancaire par défaut
-		super(numeroCompte, solde, dateOuverture, idClient);
+		super(numeroCompte, solde, dateOuverture, client);
 	}
 
 }

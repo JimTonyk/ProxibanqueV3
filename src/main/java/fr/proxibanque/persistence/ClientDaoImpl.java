@@ -1,11 +1,13 @@
 package fr.proxibanque.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import fr.proxibanque.model.Client;
 import fr.proxibanque.model.CompteCourant;
@@ -26,12 +28,18 @@ public class ClientDaoImpl implements ClientDao {
 		CompteCourant compteCourant1 = new CompteCourant();
 		CompteEpargne compteEpargne1 = new CompteEpargne();
 
+		// ajout des comptes au client1
+		client1.getComptes().add(compteCourant1);
+		client1.getComptes().add(compteEpargne1);
+
+		// ajout du client1 aux comptes=FK
+		compteCourant1.setClient(client1);
+		compteEpargne1.setClient(client1);
+
 		try {
 			txn.begin();
 			em.persist(client1);
 			em.persist(client2);
-			em.persist(compteCourant1);
-			em.persist(compteEpargne1);
 			txn.commit();
 
 		} catch (Exception e) {
@@ -45,24 +53,12 @@ public class ClientDaoImpl implements ClientDao {
 				em.close();
 			}
 		}
-
 	}
 
 	@Override
 	public Client obtenirClient(int idClient) {
-		//
-		Client client1 = new Client();
 
-		CompteCourant compteCourant1 = new CompteCourant();
-		CompteEpargne compteEpargne1 = new CompteEpargne();
-
-		// // ajout des comptes au client1
-		client1.getComptes().add(compteCourant1);
-		client1.getComptes().add(compteCourant1);
-
-		// // ajout du client1 aux comptes=FK
-		compteCourant1.setClient(client1);
-		compteEpargne1.setClient(client1);
+		Client client3 = null;
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
@@ -70,7 +66,8 @@ public class ClientDaoImpl implements ClientDao {
 
 		try {
 			txn.begin();
-			em.persist(client1);
+			client3 = em.find(Client.class, 2);
+			client3.setNom("Bob");
 			txn.commit();
 
 		} catch (Exception e) {
@@ -82,28 +79,94 @@ public class ClientDaoImpl implements ClientDao {
 		} finally {
 			if (em != null) {
 				em.close();
-				emf.close();
+
 			}
 		}
-		return client1;
+		return client3;
+
 	}
 
 	@Override
 	public List<Client> obtenirTousClients() {
-		// TODO Auto-generated method stub
-		return null;
+
+		List<Client> client5 = new ArrayList<>();
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction txn = em.getTransaction();
+
+		try {
+			txn.begin();
+			TypedQuery<Client> queryClients = em.createQuery("from Client", Client.class);
+			client5 = queryClients.getResultList();
+			txn.commit();
+
+		} catch (Exception e) {
+			if (txn != null) {
+				txn.rollback();
+			}
+			e.printStackTrace();
+
+		} finally {
+			if (em != null) {
+				em.close();
+
+			}
+		}
+		return client5;
+
 	}
 
 	@Override
 	public void modifierClient(int idClient, Client client) {
-		// TODO Auto-generated method stub
+		Client client4 = null;
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction txn = em.getTransaction();
+
+		try {
+			txn.begin();
+			client4 = em.find(Client.class, 1);
+			client4.setVille("Cherbourg");
+			txn.commit();
+
+		} catch (Exception e) {
+			if (txn != null) {
+				txn.rollback();
+			}
+			e.printStackTrace();
+
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
 
 	}
 
 	@Override
 	public void supprimerClient(int idClient) {
-		// TODO Auto-generated method stub
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction txn = em.getTransaction();
 
+		try {
+			txn.begin();
+			em.remove(em.find(Client.class, 2));
+			txn.commit();
+
+		} catch (Exception e) {
+			if (txn != null) {
+				txn.rollback();
+			}
+			e.printStackTrace();
+
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
+		emf.close();
 	}
-
 }
