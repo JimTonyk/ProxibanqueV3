@@ -34,14 +34,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/adminl/.m2/repository/org/slf4j/slf4j-api/1.7.21/slf4j-api-1.7.21.jar">
-		<attributes>
-			<attribute name="maven.pomderived" value="true"/>
-			<attribute name="maven.groupId" value="org.slf4j"/>
-			<attribute name="maven.artifactId" value="slf4j-api"/>
-			<attribute name="maven.version" value="1.7.21"/>
-			<attribute name="maven.scope" value="compile"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
