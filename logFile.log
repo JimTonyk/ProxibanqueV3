@@ -1,0 +1,216 @@
+14:43:23.306 125  [main] DEBUG o.a.cxf.common.logging.LogUtils
+				- Using org.apache.cxf.common.logging.Slf4jLogger for logging.
+14:43:23.430 249  [main] DEBUG o.a.c.j.provider.ProviderFactory
+				- Problem with creating the default provider org.apache.cxf.jaxrs.provider.json.JSONProvider: org.apache.cxf.jaxrs.provider.json.JSONProvider
+14:43:23.430 249  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+14:43:23.446 265  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+14:43:23.446 265  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+14:43:23.446 265  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+14:43:23.462 281  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.interceptor.MessageSenderInterceptor@157632c9 to phase prepare-send
+14:43:23.462 281  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.interceptor.MessageSenderInterceptor@157632c9 to phase prepare-send
+14:43:23.462 281  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.spec.ClientRequestFilterInterceptor@75f9eccc to phase pre-logical
+14:43:23.477 296  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit' has been (re)configured for plain http.
+14:43:23.477 296  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- No Trust Decider configured for Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit'
+14:43:23.477 296  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- No Auth Supplier configured for Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit'
+14:43:23.477 296  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit' has been configured for plain http.
+14:43:23.477 296  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- registering incoming observer: org.apache.cxf.jaxrs.client.ClientMessageObserver@6f3b5d16
+14:43:23.477 296  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.WebClient$BodyWriter@78b1cc93 to phase write
+14:43:23.477 296  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Chain org.apache.cxf.phase.PhaseInterceptorChain@143640d5 was created. Current flow:
+  pre-logical [ClientRequestFilterInterceptor]
+  prepare-send [MessageSenderInterceptor]
+  write [BodyWriter]
+
+14:43:23.477 296  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.spec.ClientRequestFilterInterceptor@75f9eccc
+14:43:23.477 296  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.interceptor.MessageSenderInterceptor@157632c9
+14:43:23.508 327  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor@124c278f to phase prepare-send-ending
+14:43:23.508 327  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Chain org.apache.cxf.phase.PhaseInterceptorChain@143640d5 was modified. Current flow:
+  pre-logical [ClientRequestFilterInterceptor]
+  prepare-send [MessageSenderInterceptor]
+  write [BodyWriter]
+  prepare-send-ending [MessageSenderEndingInterceptor]
+
+14:43:23.508 327  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.WebClient$BodyWriter@78b1cc93
+14:43:23.508 327  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor@124c278f
+14:43:23.524 343  [main] DEBUG o.apache.cxf.transport.http.Headers
+				- Accept: */*
+14:43:23.524 343  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- No Trust Decider for Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit'. An afirmative Trust Decision is assumed.
+14:43:23.524 343  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.WebClient$ClientAsyncResponseInterceptor@309e345f to phase unmarshal
+14:43:23.524 343  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.spec.ClientResponseFilterInterceptor@25d250c6 to phase pre-protocol-frontend
+14:43:23.524 343  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Chain org.apache.cxf.phase.PhaseInterceptorChain@4df50bcc was created. Current flow:
+  pre-protocol-frontend [ClientResponseFilterInterceptor]
+  unmarshal [ClientAsyncResponseInterceptor]
+
+14:43:23.524 343  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.spec.ClientResponseFilterInterceptor@25d250c6
+14:43:23.524 343  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.WebClient$ClientAsyncResponseInterceptor@309e345f
+14:43:23.540 359  [main] ERROR o.apache.cxf.jaxrs.utils.JAXRSUtils
+				- No message body reader has been found for class fr.proxibanque.model.Client, ContentType: text/html;charset=utf-8
+14:58:47.851 141  [main] DEBUG o.a.cxf.common.logging.LogUtils
+				- Using org.apache.cxf.common.logging.Slf4jLogger for logging.
+14:58:47.960 250  [main] DEBUG o.a.c.j.provider.ProviderFactory
+				- Problem with creating the default provider org.apache.cxf.jaxrs.provider.json.JSONProvider: org.apache.cxf.jaxrs.provider.json.JSONProvider
+14:58:47.976 266  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+14:58:47.976 266  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+14:58:47.976 266  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+14:58:47.976 266  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+14:58:47.991 281  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.interceptor.MessageSenderInterceptor@157632c9 to phase prepare-send
+14:58:47.991 281  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.interceptor.MessageSenderInterceptor@157632c9 to phase prepare-send
+14:58:47.991 281  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.spec.ClientRequestFilterInterceptor@75f9eccc to phase pre-logical
+14:58:48.007 297  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit' has been (re)configured for plain http.
+14:58:48.007 297  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- No Trust Decider configured for Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit'
+14:58:48.007 297  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- No Auth Supplier configured for Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit'
+14:58:48.007 297  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit' has been configured for plain http.
+14:58:48.007 297  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- registering incoming observer: org.apache.cxf.jaxrs.client.ClientMessageObserver@6f3b5d16
+14:58:48.007 297  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.WebClient$BodyWriter@78b1cc93 to phase write
+14:58:48.007 297  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Chain org.apache.cxf.phase.PhaseInterceptorChain@143640d5 was created. Current flow:
+  pre-logical [ClientRequestFilterInterceptor]
+  prepare-send [MessageSenderInterceptor]
+  write [BodyWriter]
+
+14:58:48.007 297  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.spec.ClientRequestFilterInterceptor@75f9eccc
+14:58:48.007 297  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.interceptor.MessageSenderInterceptor@157632c9
+14:58:48.054 344  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor@124c278f to phase prepare-send-ending
+14:58:48.054 344  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Chain org.apache.cxf.phase.PhaseInterceptorChain@143640d5 was modified. Current flow:
+  pre-logical [ClientRequestFilterInterceptor]
+  prepare-send [MessageSenderInterceptor]
+  write [BodyWriter]
+  prepare-send-ending [MessageSenderEndingInterceptor]
+
+14:58:48.054 344  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.WebClient$BodyWriter@78b1cc93
+14:58:48.054 344  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor@124c278f
+14:58:48.054 344  [main] DEBUG o.apache.cxf.transport.http.Headers
+				- Accept: */*
+14:58:48.054 344  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- No Trust Decider for Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit'. An afirmative Trust Decision is assumed.
+14:58:48.116 406  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.WebClient$ClientAsyncResponseInterceptor@309e345f to phase unmarshal
+14:58:48.116 406  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.spec.ClientResponseFilterInterceptor@25d250c6 to phase pre-protocol-frontend
+14:58:48.116 406  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Chain org.apache.cxf.phase.PhaseInterceptorChain@4df50bcc was created. Current flow:
+  pre-protocol-frontend [ClientResponseFilterInterceptor]
+  unmarshal [ClientAsyncResponseInterceptor]
+
+14:58:48.116 406  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.spec.ClientResponseFilterInterceptor@25d250c6
+14:58:48.116 406  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.WebClient$ClientAsyncResponseInterceptor@309e345f
+14:58:48.132 422  [main] ERROR o.apache.cxf.jaxrs.utils.JAXRSUtils
+				- No message body reader has been found for class fr.proxibanque.model.Client, ContentType: text/html;charset=utf-8
+15:07:46.453 156  [main] DEBUG o.a.cxf.common.logging.LogUtils
+				- Using org.apache.cxf.common.logging.Slf4jLogger for logging.
+15:07:46.562 265  [main] DEBUG o.a.c.j.provider.ProviderFactory
+				- Problem with creating the default provider org.apache.cxf.jaxrs.provider.json.JSONProvider: org.apache.cxf.jaxrs.provider.json.JSONProvider
+15:07:46.562 265  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+15:07:46.578 281  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+15:07:46.578 281  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+15:07:46.578 281  [main] DEBUG o.a.c.j.model.AbstractResourceInfo
+				- Injecting a custom context org.apache.cxf.jaxrs.ext.MessageContext, ContextProvider is required for this type
+15:07:46.593 296  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.interceptor.MessageSenderInterceptor@157632c9 to phase prepare-send
+15:07:46.593 296  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.interceptor.MessageSenderInterceptor@157632c9 to phase prepare-send
+15:07:46.593 296  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.spec.ClientRequestFilterInterceptor@75f9eccc to phase pre-logical
+15:07:46.609 312  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit' has been (re)configured for plain http.
+15:07:46.609 312  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- No Trust Decider configured for Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit'
+15:07:46.609 312  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- No Auth Supplier configured for Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit'
+15:07:46.609 312  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit' has been configured for plain http.
+15:07:46.609 312  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- registering incoming observer: org.apache.cxf.jaxrs.client.ClientMessageObserver@6f3b5d16
+15:07:46.609 312  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.WebClient$BodyWriter@78b1cc93 to phase write
+15:07:46.609 312  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Chain org.apache.cxf.phase.PhaseInterceptorChain@143640d5 was created. Current flow:
+  pre-logical [ClientRequestFilterInterceptor]
+  prepare-send [MessageSenderInterceptor]
+  write [BodyWriter]
+
+15:07:46.609 312  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.spec.ClientRequestFilterInterceptor@75f9eccc
+15:07:46.609 312  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.interceptor.MessageSenderInterceptor@157632c9
+15:07:46.656 359  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor@124c278f to phase prepare-send-ending
+15:07:46.656 359  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Chain org.apache.cxf.phase.PhaseInterceptorChain@143640d5 was modified. Current flow:
+  pre-logical [ClientRequestFilterInterceptor]
+  prepare-send [MessageSenderInterceptor]
+  write [BodyWriter]
+  prepare-send-ending [MessageSenderEndingInterceptor]
+
+15:07:46.656 359  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.WebClient$BodyWriter@78b1cc93
+15:07:46.656 359  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.interceptor.MessageSenderInterceptor$MessageSenderEndingInterceptor@124c278f
+15:07:46.656 359  [main] DEBUG o.apache.cxf.transport.http.Headers
+				- Accept: */*
+15:07:46.656 359  [main] DEBUG o.a.cxf.transport.http.HTTPConduit
+				- No Trust Decider for Conduit '{http://localhost:8080/proxibanque/services/clientservice/Clients/1000}WebClient.http-conduit'. An afirmative Trust Decision is assumed.
+15:07:46.718 421  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.WebClient$ClientAsyncResponseInterceptor@309e345f to phase unmarshal
+15:07:46.718 421  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Adding interceptor org.apache.cxf.jaxrs.client.spec.ClientResponseFilterInterceptor@25d250c6 to phase pre-protocol-frontend
+15:07:46.718 421  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Chain org.apache.cxf.phase.PhaseInterceptorChain@4df50bcc was created. Current flow:
+  pre-protocol-frontend [ClientResponseFilterInterceptor]
+  unmarshal [ClientAsyncResponseInterceptor]
+
+15:07:46.718 421  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.spec.ClientResponseFilterInterceptor@25d250c6
+15:07:46.718 421  [main] DEBUG o.a.cxf.phase.PhaseInterceptorChain
+				- Invoking handleMessage on interceptor org.apache.cxf.jaxrs.client.WebClient$ClientAsyncResponseInterceptor@309e345f
+15:07:46.718 421  [main] ERROR o.apache.cxf.jaxrs.utils.JAXRSUtils
+				- No message body reader has been found for class fr.proxibanque.model.Client, ContentType: text/html;charset=utf-8

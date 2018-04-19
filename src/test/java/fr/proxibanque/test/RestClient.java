@@ -9,28 +9,33 @@ import javax.ws.rs.core.Response;
 
 public class RestClient {
 	private static final String PATIENTS = "/Clients";
-	private static final String SERVICE_PATIENTS = "http://localhost:8080/Proxibanque/services/clientservice";
+	private static final String SERVICE_PATIENTS = "http://localhost:8080/proxibanque/services/clientservice";
 
-//	public static void main(String[] args) {
-//		Client client = ClientBuilder.newClient();
-//		// Cible
-//		WebTarget target = client.target(SERVICE_PATIENTS).path(PATIENTS).path("/1000");
-//		WebTarget putTarget = client.target(SERVICE_PATIENTS).path(PATIENTS);
-//		// Verbe
-//		Response response = target.request().get();
-//		((fr.proxibanque.model.Client) p) = response.readEntity(Client.class);
-//		// Afficher Get
-//		System.out.println(p.getNom() + " status " + response.getStatus());
-//
-//		// Méthode put
-//		(fr.proxibanque.model.Client) c = new Client();
-//		((fr.proxibanque.model.Client) c).setNom("John");
-//		((fr.proxibanque.model.Client) c).setIdClient(1001);
-//		Response putResponse = putTarget.request().put(Entity.entity(c, MediaType.APPLICATION_XML));
-//
-//		System.out.println("put =" + putResponse.getStatus());
-//		client.close();
-//		response.close();
-//
-//	}
+	public static void main(String[] args) {
+		Client client = ClientBuilder.newClient();
+		// Cible
+		WebTarget target = client.target(SERVICE_PATIENTS).path(PATIENTS).path("/1000");
+		WebTarget putTarget = client.target(SERVICE_PATIENTS).path(PATIENTS);
+		// Verbe
+		Response response = target.request().get();
+		fr.proxibanque.model.Client p = response.readEntity(fr.proxibanque.model.Client.class);
+		// Afficher Get
+		System.out.println(p.getNom() + " status " + response.getStatus());
+
+		// Méthode put
+		fr.proxibanque.model.Client c = new fr.proxibanque.model.Client();
+		c.setNom("Beurre");
+		c.setPrenom("Franz");
+		c.setAdresse("Promenade du cuisinier");
+		c.setCodePostal("77000");
+		c.setVille("Meaux");
+		c.setTelephone("0102030406");
+		c.setIdClient(1001);
+		Response putResponse = putTarget.request().put(Entity.entity(c, MediaType.APPLICATION_XML));
+
+		System.out.println("put =" + putResponse.getStatus());
+		client.close();
+		response.close();
+
+	}
 }
