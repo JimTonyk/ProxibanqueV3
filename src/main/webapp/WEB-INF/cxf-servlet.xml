@@ -4,7 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
 	xmlns:soap="http://cxf.apache.org/bindings/soap" xmlns:jaxrs="http://cxf.apache.org/jaxrs"
 	xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd  http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd">
-<jaxrs:server id="ClientService" address="/clientservice">
+<jaxrs:server id="clientService" address="/clientservice">
 <jaxrs:serviceBeans>
 <ref bean="serviceBean" />
 </jaxrs:serviceBeans>
@@ -12,8 +12,6 @@
 <ref bean="jacksonProvider" />
 </jaxrs:providers>
 </jaxrs:server>
-<bean id="serviceBean"
-class="fr.proxibanque.presentation.ClientServiceImpl"></bean>
-<bean id="jacksonProvider"
-class="org.codehaus.jackson.jaxrs.JacksonJsonProvider" ></bean>
+<bean id="serviceBean" class="fr.proxibanque.service.ClientServiceImpl"></bean>
+<bean id="jacksonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"></bean>
 </beans>

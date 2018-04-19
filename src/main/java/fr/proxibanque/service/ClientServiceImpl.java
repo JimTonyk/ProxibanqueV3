@@ -1,7 +1,5 @@
 package fr.proxibanque.service;
 
-import java.util.HashMap;
-import java.util.Map;
 
 import javax.ws.rs.core.Response;
 
@@ -14,8 +12,6 @@ import fr.proxibanque.persistence.ClientDaoImpl;
 
 public class ClientServiceImpl implements ClientService {
 
-	private int initialId = 1000;
-	Map<Integer, Client> clients = new HashMap<Integer, Client>();
 	private static Logger LOGGER = LoggerFactory.getLogger(ClientServiceImpl.class);
 	ClientDao dao = new ClientDaoImpl();
 
@@ -31,9 +27,7 @@ public class ClientServiceImpl implements ClientService {
 		client.setVille("Paris");
 		client.setCodePostal("75014");
 		client.setTelephone("0102030405");
-		client.setIdClient(initialId);
-		clients.put(client.getIdClient(), client);
-		initialId++;
+		ajouterClient(client);
 	}
 
 	@Override
@@ -41,7 +35,6 @@ public class ClientServiceImpl implements ClientService {
 		Response response = null;
 		dao.creerClient(client);
 		response = Response.ok().build();
-		initialId++;
 		LOGGER.info("Le client " + client.getPrenom() + " " + client.getNom() + " a été ajouté à la liste");
 		return response;
 	}

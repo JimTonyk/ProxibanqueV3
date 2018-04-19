@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @Entity
-@XmlRootElement(name="Client")
+@XmlRootElement(name="client")
 public class Client {
 
 	// *** ATTRIBUTS ***
@@ -108,7 +108,7 @@ public class Client {
 		return codePostal;
 	}
 
-	@XmlElement(name="codePostal")
+	@XmlElement(name="codepostal")
 	public void setCodePostal(String codePostal) {
 		this.codePostal = codePostal;
 	}
@@ -135,6 +135,7 @@ public class Client {
 		return comptes;
 	}
 
+	@XmlElement(name="compte")
 	public void setComptes(Set<Compte> comptes) {
 		this.comptes = comptes;
 	}
