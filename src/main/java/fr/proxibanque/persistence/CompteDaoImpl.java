@@ -103,13 +103,61 @@ public class CompteDaoImpl implements CompteDao {
 
 	@Override
 	public CompteEpargne obtenirCompteEpargne(int idClient) {
-		// TODO Auto-generated method stub
-		return null;
+		Client client3 = null;
+		CompteEpargne compteEpargne3 = null;
+
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction txn = em.getTransaction();
+
+		try {
+			txn.begin();
+//			compteEpargne3.getClient();
+			compteEpargne3 = em.find(CompteEpargne.class, 1);
+			compteEpargne3.setSolde(100.0);;
+			txn.commit();
+
+		} catch (Exception e) {
+			if (txn != null) {
+				txn.rollback();
+			}
+			e.printStackTrace();
+
+		} finally {
+			if (em != null) {
+				em.close();
+
+			}
+		}
+		return compteEpargne3;
 	}
 
 	@Override
-	public void modifierCompteCourant(int idClient, CompteCourant compteCourant) {
-		// TODO Auto-generated method stub
+	public void modifierCompteCourant(int idClient) {
+		Client client4 = null;
+		CompteCourant compteCourant3 = null;
+		
+		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction txn = em.getTransaction();
+
+		try {
+			txn.begin();
+			compteCourant3 = em.find(CompteCourant.class, 2);
+			compteCourant3.setDateOuverture("01/02/2017");
+			txn.commit();
+
+		} catch (Exception e) {
+			if (txn != null) {
+				txn.rollback();
+			}
+			e.printStackTrace();
+
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
 
 	}
 

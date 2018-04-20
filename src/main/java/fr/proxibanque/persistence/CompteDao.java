@@ -13,7 +13,7 @@ public interface CompteDao {
 
 	CompteEpargne obtenirCompteEpargne(int idClient);
 
-	void modifierCompteCourant(int idClient, CompteCourant compteCourant);
+	void modifierCompteCourant(int idClient);
 
 	void modifierCompteEpargne(int idClient, CompteEpargne compteEpargne);
 
