@@ -1,5 +1,6 @@
 package fr.proxibanque.persistence;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import fr.proxibanque.model.Client;
@@ -10,7 +11,7 @@ public interface ClientDao {
 	
 	Client obtenirClient(int idClient);
 
-	List<Client> obtenirTousClients();
+	ArrayList<Client> obtenirTousClients();
 
 	void modifierClient(int idClient, Client client);
 

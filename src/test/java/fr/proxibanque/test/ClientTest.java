@@ -27,9 +27,9 @@ public class ClientTest {
 		// client1);
 
 		clientDao.creerClient(client1);
-		// clientDao.creerClient(client2);
+		
 		clientDao.obtenirClient(1);
-		clientDao.obtenirTousClients();
+		//clientDao.obtenirTousClients();
 		clientDao.modifierClient(1, client1);
 		clientDao.supprimerClient(1);
 

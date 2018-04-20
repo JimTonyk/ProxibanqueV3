@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import fr.proxibanque.model.Client;
@@ -15,16 +16,6 @@ import fr.proxibanque.model.CompteEpargne;
 
 public class ClientDaoImpl implements ClientDao {
 
-	private ClientDao dao;
-	
-	public ClientDao getDao() {
-		return dao;
-	}
-
-	public void setDao(ClientDao dao) {
-		this.dao = dao;
-	}
-
 	@Override
 	public void creerClient(Client client) {
 
@@ -32,21 +23,22 @@ public class ClientDaoImpl implements ClientDao {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
-		
+		Client client1 = new Client();
+		Client client2 = new Client();
 
-//		CompteCourant compteCourant1 = new CompteCourant();
-//		CompteEpargne compteEpargne1 = new CompteEpargne();
+		CompteCourant compteCourant1 = new CompteCourant();
+		CompteEpargne compteEpargne1 = new CompteEpargne();
 
 		// ajout des comptes au client1
-//		client.getComptes().add(compteCourant1);
-//		client.getComptes().add(compteEpargne1);
+		client1.getComptes().add(compteCourant1);
+		client1.getComptes().add(compteEpargne1);
 
 		// client.getComptes().add(compteCourant1);
 		// client.getComptes().add(compteEpargne1);
 
 		// ajout du client1 aux comptes=FK
-//		compteCourant1.setClient(client);
-//		compteEpargne1.setClient(client);
+		compteCourant1.setClient(client1);
+		compteEpargne1.setClient(client1);
 
 		// compteCourant1.setClient(client);
 		// compteEpargne1.setClient(client);
@@ -54,7 +46,8 @@ public class ClientDaoImpl implements ClientDao {
 		try {
 			txn.begin();
 			// em.persist(client);
-			em.persist(client);
+			em.persist(client1);
+			em.persist(client2);
 			txn.commit();
 
 		} catch (Exception e) {
@@ -81,8 +74,8 @@ public class ClientDaoImpl implements ClientDao {
 
 		try {
 			txn.begin();
-			client3 = em.find(Client.class, idClient);
-			//client3.setNom("Bob");
+			client3 = em.find(Client.class, 1);
+			client3.setNom("Bob");
 			txn.commit();
 
 		} catch (Exception e) {
@@ -102,9 +95,9 @@ public class ClientDaoImpl implements ClientDao {
 	}
 
 	@Override
-	public List<Client> obtenirTousClients() {
+	public ArrayList<Client> obtenirTousClients() {
 
-		List<Client> client5 = new ArrayList<>();
+		ArrayList<Client> client5 = new ArrayList<>();
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
@@ -112,8 +105,12 @@ public class ClientDaoImpl implements ClientDao {
 
 		try {
 			txn.begin();
-			TypedQuery<Client> queryClients = em.createQuery("from Client", Client.class);
-			client5 = queryClients.getResultList();
+			Query jquery=em.createQuery("Select client From Client client");
+//			client5=(ArrayList<Client>)jquery.getResultList();
+			System.out.println(jquery.getResultList());
+			
+			//TypedQuery<Client> queryClients = em.createQuery("from Client", Client.class);
+			//client5 = queryClients.getResultList();
 			txn.commit();
 
 		} catch (Exception e) {

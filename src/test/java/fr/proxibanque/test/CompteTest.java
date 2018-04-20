@@ -23,8 +23,8 @@ public class CompteTest {
 
 		compteDao.creerCompteCourant(compteCourant1);
 		compteDao.creerCompteEpargne(compteEpargne1);
-		//compteDao.obtenirCompteCourant(1);
-//		compteDao.obtenirCompteEpargne(2);
+		compteDao.obtenirCompteCourant(1);
+		//compteDao.obtenirCompteEpargne(2);
 		
 
 //		clientDao.obtenirTousClients();

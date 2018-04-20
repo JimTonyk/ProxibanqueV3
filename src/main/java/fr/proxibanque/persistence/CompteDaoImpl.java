@@ -6,6 +6,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import fr.proxibanque.model.Client;
+import fr.proxibanque.model.Compte;
 import fr.proxibanque.model.CompteCourant;
 import fr.proxibanque.model.CompteEpargne;
 
@@ -80,9 +81,9 @@ public class CompteDaoImpl implements CompteDao {
 
 		try {
 			txn.begin();
-			compteCourant3.getClient();
-			compteCourant3 = em.find(CompteCourant.class, 1);
-			compteCourant3.setNumeroCompte(1);
+//			compteCourant3.getClient();
+			compteCourant3 = em.find(CompteCourant.class, 2);
+			compteCourant3.setSolde(50.0);;
 			txn.commit();
 
 		} catch (Exception e) {
@@ -127,7 +128,8 @@ public class CompteDaoImpl implements CompteDao {
 
 		try {
 			txn.begin();
-			em.remove(em.find(CompteCourant.class, 1));
+			em.remove(em.find(CompteCourant.class, 2));
+			// em.remove(em.find(CompteCourant.class, compteCourant.getNumeroCompte()));
 			txn.commit();
 
 		} catch (Exception e) {
@@ -150,9 +152,11 @@ public class CompteDaoImpl implements CompteDao {
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
+
 		try {
 			txn.begin();
-			em.remove(em.find(CompteEpargne.class, 2));
+			em.remove(em.find(CompteEpargne.class, 1));
+			// em.remove(em.find(CompteEpargne.class, compteEpargne.getNumeroCompte()));
 			txn.commit();
 
 		} catch (Exception e) {
@@ -168,5 +172,4 @@ public class CompteDaoImpl implements CompteDao {
 		}
 		emf.close();
 	}
-
 }
