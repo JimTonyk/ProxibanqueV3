@@ -37,7 +37,7 @@ public interface CompteService {
 
 	@GET
 	@Path("/Comptes/{numeroCompte}")
-	CompteCourant obtenirCompteEpargne(@PathParam("numeroCompte") String numeroCompte);
+	CompteEpargne obtenirCompteEpargne(@PathParam("numeroCompte") String numeroCompte);
 
 	@PUT
 	@Path("/Comptes/")

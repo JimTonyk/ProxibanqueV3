@@ -11,6 +11,11 @@ import javax.ws.rs.core.Response;
 
 import fr.proxibanque.model.Client;
 
+/**
+ * Cette interface permet de réaliser les opérations du CRUD aussi bien dans la base de données que dans le WebService Proxibanque
+ * @authorOzlem Avci et Jean-Michel Hiltbrunner
+ *
+ */
 @Produces({"application/xml","application/json"})
 public interface ClientService {
 	

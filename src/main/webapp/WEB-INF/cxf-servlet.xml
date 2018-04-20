@@ -12,6 +12,6 @@
 <ref bean="jacksonProvider" />
 </jaxrs:providers>
 </jaxrs:server>
-<bean id="serviceBean" class="fr.proxibanque.service.ClientServiceImpl"></bean>
+<bean id="serviceBean" class="fr.proxibanque.service.ProxibanqueServiceImpl"></bean>
 <bean id="jacksonProvider" class="org.codehaus.jackson.jaxrs.JacksonJsonProvider"></bean>
 </beans>
