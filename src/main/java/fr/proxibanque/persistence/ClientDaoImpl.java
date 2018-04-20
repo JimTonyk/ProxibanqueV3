@@ -15,6 +15,16 @@ import fr.proxibanque.model.CompteEpargne;
 
 public class ClientDaoImpl implements ClientDao {
 
+	private ClientDao dao;
+	
+	public ClientDao getDao() {
+		return dao;
+	}
+
+	public void setDao(ClientDao dao) {
+		this.dao = dao;
+	}
+
 	@Override
 	public void creerClient(Client client) {
 
@@ -22,22 +32,21 @@ public class ClientDaoImpl implements ClientDao {
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
-		Client client1 = new Client();
-		Client client2 = new Client();
+		
 
-		CompteCourant compteCourant1 = new CompteCourant();
-		CompteEpargne compteEpargne1 = new CompteEpargne();
+//		CompteCourant compteCourant1 = new CompteCourant();
+//		CompteEpargne compteEpargne1 = new CompteEpargne();
 
 		// ajout des comptes au client1
-		client1.getComptes().add(compteCourant1);
-		client1.getComptes().add(compteEpargne1);
+//		client.getComptes().add(compteCourant1);
+//		client.getComptes().add(compteEpargne1);
 
 		// client.getComptes().add(compteCourant1);
 		// client.getComptes().add(compteEpargne1);
 
 		// ajout du client1 aux comptes=FK
-		compteCourant1.setClient(client1);
-		compteEpargne1.setClient(client1);
+//		compteCourant1.setClient(client);
+//		compteEpargne1.setClient(client);
 
 		// compteCourant1.setClient(client);
 		// compteEpargne1.setClient(client);
@@ -45,8 +54,7 @@ public class ClientDaoImpl implements ClientDao {
 		try {
 			txn.begin();
 			// em.persist(client);
-			em.persist(client1);
-			em.persist(client2);
+			em.persist(client);
 			txn.commit();
 
 		} catch (Exception e) {
@@ -73,8 +81,8 @@ public class ClientDaoImpl implements ClientDao {
 
 		try {
 			txn.begin();
-			client3 = em.find(Client.class, 1);
-			client3.setNom("Bob");
+			client3 = em.find(Client.class, idClient);
+			//client3.setNom("Bob");
 			txn.commit();
 
 		} catch (Exception e) {

@@ -3,6 +3,7 @@ package fr.proxibanque.model;
 import javax.persistence.CascadeType;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,7 +32,7 @@ public abstract class Compte {
 	private double solde;
 	private String dateOuverture;
 
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne(fetch=FetchType.EAGER, cascade = { CascadeType.PERSIST })
 	@JoinColumn(name = "client_idClient")
 	private Client client;
 
