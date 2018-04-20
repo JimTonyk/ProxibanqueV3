@@ -1,0 +1,104 @@
+Accéder au WADL de Proxibanque V3 :
+http:/localhost:8080/proxibanque/services/clientservice?_wadl
+
+Méthodes associées au client :
+-- Créer un client
+http:/localhost:8080/proxibanque/services/clientservice/Clients/ permet d'ajouter un client
+Méthode en XML
+<client>
+	<nom>"Valeur"</nom>
+	<prenom>"Valeur"</prenom>
+	<adresse>"Valeur"</adresse>
+	<codepostal>"Valeur"</codepostal>
+	<ville>"Valeur"</ville>
+	<telephone>"Valeur"</telephone>
+</client>
+
+Méthode en JSON
+{
+"nom":"valeur",
+"prenom":valeur,
+"adresse":"valeur",
+"ville":"valeur",
+"codepostal":"valeur",
+"telephone":"valeur"
+}
+Info : tous les champs ne sont pas obligatoires, ceux non utilisés seront instanciés à null par défaut.
+ 
+Code de retour : 200 si tout est bien réalisé.
+
+-- Lire un client
+http:/localhost:8080/proxibanque/services/clientservice/Clients/"idClient" permet d'ajouter un client
+Méthode en XML
+<client>
+	<idclient>"Valeur"</idclient>
+</client>
+
+Méthode en JSON
+{
+"idclient":valeur
+}
+
+Code de retour : 200 si le client existe ou 404 si il n'est pas dans la base de données.
+Flux de retour :
+<client>
+	<idclient>valeur</idclient>
+	<nom>"Valeur"</nom>
+	<prenom>"Valeur"</prenom>
+	<adresse>"Valeur"</adresse>
+	<codepostal>"Valeur"</codepostal>
+	<ville>"Valeur"</ville>
+	<telephone>"Valeur"</telephone>
+</client>
+ou
+{
+"idclient":valeur,
+"nom":"valeur",
+"prenom":valeur,
+"adresse":"valeur",
+"ville":"valeur",
+"codepostal":"valeur",
+"telephone":"valeur"
+}
+
+
+-- Modifier un client
+http:/localhost:8080/proxibanque/services/clientservice/Clients/
+Méthode en XML :
+<client>
+	<idclient>valeur</idclient>
+	<nom>"Valeur"</nom>
+	<prenom>"Valeur"</prenom>
+	<adresse>"Valeur"</adresse>
+	<codepostal>"Valeur"</codepostal>
+	<ville>"Valeur"</ville>
+	<telephone>"Valeur"</telephone>
+</client>
+
+Info :Seul le champ idClient est obligatoire, les autres champs sont ajoutés si une modification est à faire.
+en JSON :
+{
+"idclient":valeur,
+"nom":"valeur",
+"prenom":valeur,
+"adresse":"valeur",
+"ville":"valeur",
+"codepostal":"valeur",
+"telephone":"valeur"
+}
+
+Code de retour : 200 si la modification a bien été réalisée, 304 si un rollback est fait ou rien n'a été modifié ou que le client n'existe pas dans la liste.
+
+-- Supprimer un client
+http:/localhost:8080/proxibanque/services/clientservice/Clients/"idClient" permet de supprimer un client
+Méthode en XML
+<client>
+	<idclient>"Valeur"</idclient>
+</client>
+
+Méthode en JSON
+{
+"idclient":valeur
+}
+
+Code de retour : 200 si le client a bien été effacé, 304 si un rollback a été réalisé ou que le client n'existait pas dans la liste.
