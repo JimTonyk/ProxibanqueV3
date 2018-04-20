@@ -6,18 +6,17 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import fr.proxibanque.model.Client;
-import fr.proxibanque.model.Compte;
 import fr.proxibanque.model.CompteCourant;
 import fr.proxibanque.model.CompteEpargne;
 
 public class CompteDaoImpl implements CompteDao {
 
 	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
-	
+
 	@Override
 	public void creerCompteCourant(CompteCourant compteCourant) {
 
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		// EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -45,7 +44,7 @@ public class CompteDaoImpl implements CompteDao {
 	@Override
 	public void creerCompteEpargne(CompteEpargne compteEpargne) {
 
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		// EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -77,15 +76,16 @@ public class CompteDaoImpl implements CompteDao {
 		Client client3 = null;
 		CompteCourant compteCourant3 = null;
 
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		// EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
 		try {
 			txn.begin();
-//			compteCourant3.getClient();
+			// compteCourant3.getClient();
 			compteCourant3 = em.find(CompteCourant.class, 2);
-			compteCourant3.setSolde(50.0);;
+			compteCourant3.setSolde(50.0);
+			;
 			txn.commit();
 
 		} catch (Exception e) {
@@ -108,15 +108,16 @@ public class CompteDaoImpl implements CompteDao {
 		Client client3 = null;
 		CompteEpargne compteEpargne3 = null;
 
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		// EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
 		try {
 			txn.begin();
-//			compteEpargne3.getClient();
+			// compteEpargne3.getClient();
 			compteEpargne3 = em.find(CompteEpargne.class, 1);
-			compteEpargne3.setSolde(100.0);;
+			compteEpargne3.setSolde(100.0);
+			;
 			txn.commit();
 
 		} catch (Exception e) {
@@ -138,8 +139,8 @@ public class CompteDaoImpl implements CompteDao {
 	public void modifierCompteCourant(int idClient) {
 		Client client4 = null;
 		CompteCourant compteCourant3 = null;
-		
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+
+		// EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -166,9 +167,9 @@ public class CompteDaoImpl implements CompteDao {
 	@Override
 	public void modifierCompteEpargne(int idClient) {
 		Client client4 = null;
-		CompteEpargne compteEpargne3= null;
-		
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		CompteEpargne compteEpargne3 = null;
+
+		// EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -221,7 +222,7 @@ public class CompteDaoImpl implements CompteDao {
 	@Override
 	public void supprimerCompteEpargne(CompteEpargne compteEpargne) {
 
-		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		// EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -240,8 +241,9 @@ public class CompteDaoImpl implements CompteDao {
 		} finally {
 			if (em != null) {
 				em.close();
+				emf.close();
 			}
 		}
-		emf.close();
+
 	}
 }

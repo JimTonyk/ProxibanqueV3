@@ -143,6 +143,8 @@ public class Client {
 
 	// *** AUTRES METHODES ***
 
+	
+	
 	@Override
 	public String toString() {
 		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse

@@ -15,8 +15,7 @@ public class CompteTest {
 		CompteDao compteDao = new CompteDaoImpl();
 
 		Client client1 = new Client();
-		Client client2 = new Client();
-
+		
 		CompteCourant compteCourant1 = new CompteCourant();
 		CompteEpargne compteEpargne1 = new CompteEpargne();
 
@@ -30,7 +29,7 @@ public class CompteTest {
 		compteDao.modifierCompteCourant(1);
 		compteDao.modifierCompteEpargne(1);
 
-		// compteDao.supprimerCompteCourant(compteCourant1);
-		// compteDao.supprimerCompteEpargne(compteEpargne1);
+		 compteDao.supprimerCompteCourant(compteCourant1);
+		 compteDao.supprimerCompteEpargne(compteEpargne1);
 	}
 }

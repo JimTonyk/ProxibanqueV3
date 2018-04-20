@@ -7,15 +7,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import fr.proxibanque.model.Client;
+import fr.proxibanque.model.CompteCourant;
+import fr.proxibanque.model.CompteEpargne;
 import fr.proxibanque.persistence.ClientDao;
 import fr.proxibanque.persistence.ClientDaoImpl;
 
-public class ClientServiceImpl implements ClientService {
+public class ProxibanqueServiceImpl implements ClientService, CompteService {
 
-	private static Logger LOGGER = LoggerFactory.getLogger(ClientServiceImpl.class);
-	ClientDao dao = new ClientDaoImpl();
+	private static Logger LOGGER = LoggerFactory.getLogger(ProxibanqueServiceImpl.class);
 
-	public ClientServiceImpl() {
+	ClientDao daoclient = new ClientDaoImpl();
+	
+	public ProxibanqueServiceImpl() {
 		initialisation();
 	}
 
@@ -33,7 +36,7 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public Response ajouterClient(Client client) {
 		Response response = null;
-		dao.creerClient(client);
+		daoclient.creerClient(client);
 		response = Response.ok().build();
 		LOGGER.info("Le client " + client.getPrenom() + " " + client.getNom() + " a été ajouté à la liste");
 		return response;
@@ -42,7 +45,7 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public Client obtenirClient(String id) {
 		int requete = Integer.parseInt(id);
-		Client choix = dao.obtenirClient(requete);
+		Client choix = daoclient.obtenirClient(requete);
 		LOGGER.info(
 				"Des informations sur le client " + choix.getPrenom() + " " + choix.getNom() + " ont été demandées.");
 		return choix;
@@ -51,9 +54,9 @@ public class ClientServiceImpl implements ClientService {
 	@Override
 	public Response modifierClient(int idClient, Client client) {
 		Response response = null;
-		Client modif = dao.obtenirClient(idClient);
+		Client modif = daoclient.obtenirClient(idClient);
 		if (modif != null) {
-			dao.modifierClient(idClient, client);
+			daoclient.modifierClient(idClient, client);
 			response = Response.ok().build();
 			LOGGER.info("Des informations sur le client " + client.getPrenom() + " " + client.getNom()
 					+ " ont été modifiées.");
@@ -69,16 +72,64 @@ public class ClientServiceImpl implements ClientService {
 	public Response supprimerClient(String id) {
 		Response response = null;
 		int requete = Integer.parseInt(id);
-		Client client = dao.obtenirClient(requete);
+		Client client = daoclient.obtenirClient(requete);
 		if (client != null) {
 			LOGGER.info(
 					"Le client " + client.getPrenom() + " " + client.getNom() + " a été supprimé de la base clients");
-			dao.supprimerClient(requete);
+			daoclient.supprimerClient(requete);
 			response = Response.ok().build();
 		} else
 			response = Response.notModified().build();
 		LOGGER.info("Une tentative de suppression de client a été réalisée sans succés. La table n'a pas été modifiée");
 		return response;
+	}
+
+	@Override
+	public Response ajouterCompteCourant(CompteCourant compte) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CompteCourant obtenirCompteCourant(String numeroCompte) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Response modifierCompteCourant(CompteCourant compte) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Response supprimerCompteCourant(CompteCourant numeroCompte) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Response ajouterCompteEpargne(CompteEpargne compte) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public CompteCourant obtenirCompteEpargne(String numeroCompte) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Response modifierCompteEpargne(CompteEpargne compte) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Response supprimerCompteEpargne(CompteEpargne numeroCompte) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
