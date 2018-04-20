@@ -32,7 +32,7 @@ public abstract class Compte {
 	private double solde;
 	private String dateOuverture;
 
-	@ManyToOne(fetch=FetchType.EAGER, cascade = { CascadeType.PERSIST })
+	@ManyToOne(fetch=FetchType.EAGER, cascade = { CascadeType.PERSIST, CascadeType.REMOVE  })
 	@JoinColumn(name = "client_idClient")
 	private Client client;
 

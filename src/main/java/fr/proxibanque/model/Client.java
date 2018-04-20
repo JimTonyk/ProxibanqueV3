@@ -143,11 +143,12 @@ public class Client {
 
 	// *** AUTRES METHODES ***
 
+	
+	
 	@Override
 	public String toString() {
 		return "Client [idClient=" + idClient + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse
-				+ ", codePostal=" + codePostal + ", ville=" + ville + ", telephone=" + telephone + ", comptes="
-				+ comptes + "]";
+				+ ", codePostal=" + codePostal + ", ville=" + ville + ", telephone=" + telephone ;
 	}
 
 }
