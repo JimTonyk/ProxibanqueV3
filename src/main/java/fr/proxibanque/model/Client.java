@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -39,7 +40,7 @@ public class Client {
 	private String ville;
 	private String telephone;
 
-	@OneToMany(mappedBy = "client", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
+	@OneToMany(fetch=FetchType.EAGER, mappedBy = "client", cascade = { CascadeType.PERSIST, CascadeType.REMOVE })
 	private Set<Compte> comptes = new HashSet<>();
 
 	public void addCompte(Compte compte) {
@@ -72,7 +73,7 @@ public class Client {
 		return idClient;
 	}
 
-	@XmlElement(name="id")
+	@XmlElement(name="idClient")
 	public void setIdClient(int idClient) {
 		this.idClient = idClient;
 	}
@@ -135,7 +136,7 @@ public class Client {
 		return comptes;
 	}
 
-	@XmlElement(name="compte")
+	@XmlElement(name="comptes")
 	public void setComptes(Set<Compte> comptes) {
 		this.comptes = comptes;
 	}
