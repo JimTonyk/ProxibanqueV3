@@ -22,14 +22,15 @@ public class CompteTest {
 
 		compteDao.creerCompteCourant(compteCourant1);
 		compteDao.creerCompteEpargne(compteEpargne1);
+		// System.out.println(compteCourant1.getNumeroCompte());
 
 		compteDao.obtenirCompteCourant(1);
-		compteDao.obtenirCompteEpargne(2);
+		compteDao.obtenirCompteEpargne(1);
 
 		compteDao.modifierCompteCourant(1);
-		//compteDao.modifierCompteEpargne(1, compteEpargne1);
+		compteDao.modifierCompteEpargne(1);
 
-		compteDao.supprimerCompteCourant(compteCourant1);
-		compteDao.supprimerCompteEpargne(compteEpargne1);
+		// compteDao.supprimerCompteCourant(compteCourant1);
+		// compteDao.supprimerCompteEpargne(compteEpargne1);
 	}
 }

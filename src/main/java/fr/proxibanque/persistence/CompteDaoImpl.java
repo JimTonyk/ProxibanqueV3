@@ -12,10 +12,12 @@ import fr.proxibanque.model.CompteEpargne;
 
 public class CompteDaoImpl implements CompteDao {
 
+	private EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+	
 	@Override
 	public void creerCompteCourant(CompteCourant compteCourant) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -43,7 +45,7 @@ public class CompteDaoImpl implements CompteDao {
 	@Override
 	public void creerCompteEpargne(CompteEpargne compteEpargne) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -75,7 +77,7 @@ public class CompteDaoImpl implements CompteDao {
 		Client client3 = null;
 		CompteCourant compteCourant3 = null;
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -106,7 +108,7 @@ public class CompteDaoImpl implements CompteDao {
 		Client client3 = null;
 		CompteEpargne compteEpargne3 = null;
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -137,7 +139,7 @@ public class CompteDaoImpl implements CompteDao {
 		Client client4 = null;
 		CompteCourant compteCourant3 = null;
 		
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
@@ -162,21 +164,43 @@ public class CompteDaoImpl implements CompteDao {
 	}
 
 	@Override
-	public void modifierCompteEpargne(int idClient, CompteEpargne compteEpargne) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void supprimerCompteCourant(CompteCourant compteCourant) {
-
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+	public void modifierCompteEpargne(int idClient) {
+		Client client4 = null;
+		CompteEpargne compteEpargne3= null;
+		
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 
 		try {
 			txn.begin();
-			em.remove(em.find(CompteCourant.class, 2));
+			compteEpargne3 = em.find(CompteEpargne.class, 1);
+			compteEpargne3.setDateOuverture("31/12/2016");
+			txn.commit();
+
+		} catch (Exception e) {
+			if (txn != null) {
+				txn.rollback();
+			}
+			e.printStackTrace();
+
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
+	}
+
+	@Override
+	public void supprimerCompteCourant(CompteCourant compteCourant) {
+
+		EntityManager em = emf.createEntityManager();
+		EntityTransaction txn = em.getTransaction();
+
+		try {
+			txn.begin();
+			System.out.println(compteCourant.getNumeroCompte());
+			em.remove(compteCourant);
 			// em.remove(em.find(CompteCourant.class, compteCourant.getNumeroCompte()));
 			txn.commit();
 
@@ -197,7 +221,7 @@ public class CompteDaoImpl implements CompteDao {
 	@Override
 	public void supprimerCompteEpargne(CompteEpargne compteEpargne) {
 
-		EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
+		//EntityManagerFactory emf = Persistence.createEntityManagerFactory("my-pu");
 		EntityManager em = emf.createEntityManager();
 		EntityTransaction txn = em.getTransaction();
 

@@ -15,7 +15,7 @@ public interface CompteDao {
 
 	void modifierCompteCourant(int idClient);
 
-	void modifierCompteEpargne(int idClient, CompteEpargne compteEpargne);
+	void modifierCompteEpargne(int idClient);
 
 	void supprimerCompteCourant(CompteCourant compteCourant);
 
