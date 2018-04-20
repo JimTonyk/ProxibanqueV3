@@ -2,6 +2,9 @@ package fr.proxibanque.model;
 
 /**
  * 
+ * Cette classe permet de générer un gérant qui sera responsable d'agence. Cette
+ * fonctionnalité sera mise en oeuvre lors d'un prochain déploiement de ce
+ * livrable.
  * 
  * @author Jean-Michel Hiltbrunner,Ozlem Avci
  *

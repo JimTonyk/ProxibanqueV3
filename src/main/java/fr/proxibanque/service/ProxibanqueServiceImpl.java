@@ -161,7 +161,7 @@ public class ProxibanqueServiceImpl implements ClientService, CompteService {
 		Response response = null;
 		CompteEpargne modif = daocompte.obtenirCompteEpargne(compte.getNumeroCompte());
 		if (modif != null) {
-			daocompte.modifierCompteEpargne(modif.getNumeroCompte(), compte);
+			daocompte.modifierCompteEpargne(modif.getNumeroCompte());
 			response = Response.ok().build();
 			LOGGER.info("Des informations sur le compte épargne " + modif.getNumeroCompte()
 					+ " ont été modifiées.");

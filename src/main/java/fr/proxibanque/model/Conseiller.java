@@ -1,7 +1,9 @@
 package fr.proxibanque.model;
 
 /**
- * 
+ * Cette classe factorise les informations sur un conseiller afin de lui
+ * associer des clients. Cette implémentation fera l'objet de la 2ème version du
+ * livrable.
  * 
  * @author Jean-Michel Hiltbrunner,Ozlem Avci
  *
