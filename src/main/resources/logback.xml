@@ -26,7 +26,7 @@
 		</encoder>
 	</appender>
 <!-- 	NOM DU PACKAGE ET DE LA CLASSE -->
-	<logger name="fr.proxibanque.presentation.ClientServiceImpl" level="TRACE" />
+	<logger name="fr.proxibanque.presentation.ClientServiceImpl" level="INFO" />
 	<!-- TRACE, DEBUG, INFO, WARN, ERROR, ALL or OFF -->
 
 	<root level="trace">
