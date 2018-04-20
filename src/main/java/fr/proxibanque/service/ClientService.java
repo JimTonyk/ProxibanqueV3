@@ -27,7 +27,7 @@ public interface ClientService {
 	Response modifierClient (int idClient, Client client);
 	
 	@DELETE
-	@Path("/Clients/{id}")
+	@Path("/Clients/{idClient}")
 	Response supprimerClient(@PathParam("idClient") String id);
 
 }
